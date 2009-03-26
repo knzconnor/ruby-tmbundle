@@ -45,10 +45,10 @@ TextMate::Executor.run(cmd, :version_args => ["--version"]) do |str, type|
           "</a> in <strong>#{CGI::escapeHTML display_name}</strong> at line #{line}<br/>"
         elsif line =~ /(\[[^\]]+\]\([^)]+\))\s+\[([\w\_\/\.]+)\:(\d+)\]/
           spec, file, line = $1, $2, $3, $4
-          "<span><a style=\"color: blue;\" href=\"txmt://open?url=file://#{e_url(file)}&amp;line=#{line}\">#{spec}</span>:#{line}<br/>"
+          "<span><a style=\"color: blue;\" href=\"txmt://open?url=file://#{e_url(file)}&amp;line=#{line}\">#{spec}</a></span>:#{line}<br/>"
         elsif line =~ /([\w\_]+).*\[([\w\_\/\.]+)\:(\d+)\]/
           method, file, line = $1, $2, $3
-          "<span><a style=\"color: blue;\" href=\"txmt://open?url=file://#{e_url(file)}&amp;line=#{line}\">#{method}</span>:#{line}<br/>"
+          "<span><a style=\"color: blue;\" href=\"txmt://open?url=file://#{e_url(file)}&amp;line=#{line}\">#{method}</a></span>:#{line}<br/>"
         elsif line =~ /^\d+ tests, \d+ assertions, (\d+) failures, (\d+) errors\b.*/
           "<span style=\"color: #{$1 + $2 == "00" ? "green" : "red"}\">#{$&}</span><br/>"
         else
